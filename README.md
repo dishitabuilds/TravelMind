@@ -1,6 +1,15 @@
 # 🌍 TravelMind – AI Powered Personalized Travel Recommendation and Itinerary Planner
 
+**Live demo:** [travelmind-frontend.onrender.com](https://travelmind-frontend.onrender.com/)
+
 > Hackathon-ready full-stack travel planner combining Groq AI, MongoDB, React, and Leaflet maps.
+
+## Demo and deployment
+
+The frontend is hosted at [travelmind-frontend.onrender.com](https://travelmind-frontend.onrender.com/).
+The included [Render blueprint](render.yaml) configures separate frontend and
+backend services. Set the actual backend API URL and permitted frontend origin
+when deploying your own instance.
 
 ---
 
@@ -16,6 +25,11 @@
 ### 1. Backend Setup
 
 ```bash
+git clone https://github.com/dishitabuilds/TravelMind.git
+cd TravelMind
+```
+
+```bash
 cd backend
 npm install
 ```
@@ -25,6 +39,8 @@ Create `.env` file (copy from `.env.example`):
 PORT=5000
 MONGODB_URI=mongodb+srv://<username>:<password>@travelmind-cluster.vtokiku.mongodb.net/test3?appName=travelmind-cluster
 GROQ_API_KEY=your_groq_api_key_here
+JWT_SECRET=replace_with_a_random_secret
+FRONTEND_URL=http://localhost:5173
 ```
 
 Start the backend:
@@ -43,6 +59,10 @@ npm install
 npm run dev
 ```
 Frontend runs at → `http://localhost:5173`
+
+Set `VITE_API_BASE_URL=http://localhost:5000/api` in `frontend/.env` for local
+API requests. For deployment, set it to the actual backend API URL and configure
+`FRONTEND_URL` on the backend to match the frontend origin.
 
 ---
 
